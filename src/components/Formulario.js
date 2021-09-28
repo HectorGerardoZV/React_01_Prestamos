@@ -2,7 +2,7 @@ import React, {Fragment,useState}  from 'react';
 import {calcularTotal} from "../Helpers";
 
 const Formulario = (props) => {
-    const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardaTotal} = props;
+    const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardaTotal,guardaCargando} = props;
     const leerCantidad =(e)=>{
         guardarCantidad(parseInt(e.target.value));
     }
@@ -19,9 +19,16 @@ const Formulario = (props) => {
               return;
             }
             cambiaError(false);
-            //Cotización
+            //Spiner on
+            guardaCargando(true);
+            setTimeout(() => {
+                 //Cotización
             const total = calcularTotal(cantidad, plazo);
             guardaTotal(total);
+            //Spiner off
+            guardaCargando(false);
+            }, 2000);
+           
         }
     return ( 
        <Fragment>
