@@ -6,7 +6,7 @@ let procentajePlazo;
     //Calculando interes
     if(cantidad <=1000){procentaje = .25;} 
     else if(cantidad >1000 && cantidad<=5000){procentaje = .20;}
-    else if(cantidad >5000 && cantidad<=1000){procentaje = .15;}
+    else if(cantidad >5000 && cantidad<=10000){procentaje = .15;}
     else if(cantidad >10000){procentaje = .10;}
     totalCantidad = cantidad*procentaje;
     //Calculando total a pagar con plazo

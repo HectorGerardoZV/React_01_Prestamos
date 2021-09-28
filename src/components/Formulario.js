@@ -1,7 +1,8 @@
 import React, {Fragment,useState}  from 'react';
 import {calcularTotal} from "../Helpers";
 
-const Formulario = ({cantidad, guardarCantidad, plazo, guardarPlazo}) => {
+const Formulario = (props) => {
+    const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardaTotal} = props;
     const leerCantidad =(e)=>{
         guardarCantidad(parseInt(e.target.value));
     }
@@ -13,7 +14,6 @@ const Formulario = ({cantidad, guardarCantidad, plazo, guardarPlazo}) => {
     const calcularPrestamo=e=>{
             e.preventDefault();
             //Validar
-
             if(cantidad===0 || plazo==="" || isNaN(cantidad) ){
               cambiaError(true);
               return;
@@ -21,7 +21,7 @@ const Formulario = ({cantidad, guardarCantidad, plazo, guardarPlazo}) => {
             cambiaError(false);
             //Cotización
             const total = calcularTotal(cantidad, plazo);
-            console.log(total);
+            guardaTotal(total);
         }
     return ( 
        <Fragment>
