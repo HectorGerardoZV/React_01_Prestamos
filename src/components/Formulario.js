@@ -1,4 +1,5 @@
 import React, {Fragment,useState}  from 'react';
+import {calcularTotal} from "../Helpers";
 
 const Formulario = ({cantidad, guardarCantidad, plazo, guardarPlazo}) => {
     const leerCantidad =(e)=>{
@@ -8,9 +9,6 @@ const Formulario = ({cantidad, guardarCantidad, plazo, guardarPlazo}) => {
         guardarPlazo(parseInt(e.target.value));
     }
     const  [error, cambiaError] = useState(false);
-
-
-
 
     const calcularPrestamo=e=>{
             e.preventDefault();
@@ -22,7 +20,9 @@ const Formulario = ({cantidad, guardarCantidad, plazo, guardarPlazo}) => {
             }
             cambiaError(false);
             //Cotización
-    }
+            const total = calcularTotal(cantidad, plazo);
+            console.log(total);
+        }
     return ( 
        <Fragment>
        <form onSubmit={calcularPrestamo}>
