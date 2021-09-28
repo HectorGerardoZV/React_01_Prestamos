@@ -2,7 +2,7 @@ import React, {Fragment,useState}  from 'react';
 import {calcularTotal} from "../Helpers";
 
 const Formulario = (props) => {
-    const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardaTotal,guardaCargando} = props;
+    const {cantidad, guardarCantidad, plazo, guardarPlazo, guardaTotal,guardaCargando} = props;
     const leerCantidad =(e)=>{
         guardarCantidad(parseInt(e.target.value));
     }
